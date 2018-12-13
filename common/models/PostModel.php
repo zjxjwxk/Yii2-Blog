@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 use common\models\base\BaseModel;
+use common\models\RelationPostTagModel;
+use common\models\PostExtendModel;
 
 /**
  * This is the model class for table "posts".
@@ -22,12 +24,27 @@ use common\models\base\BaseModel;
  */
 class PostModel extends BaseModel
 {
+    // 发布
+    const IS_VALID = 1;
+    // 未发布
+    const NO_VALID = 0;
+
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'posts';
+    }
+
+    public function getRelate()
+    {
+        return $this->hasMany(RelationPostTagModel::className(), ['post_id' => 'id']);
+    }
+
+    public function getExtend()
+    {
+        return $this->hasOne(PostExtendModel::className(), ['post_id' => 'id']);
     }
 
     /**

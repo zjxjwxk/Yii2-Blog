@@ -88,7 +88,7 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
-}S
+}
 
 .navbar-right > li > a.avatar{
     padding-top: 10px;
@@ -110,4 +110,147 @@ a.desc:after {
 
 .panel-body{
     padding: 15px 0 15px 0;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: white;
+    border: 1px solid #aaa;
+    cursor: text;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #2b542c;
+    outline: 0 none;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #5cb85c;
+    color:#fff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color:#fff;
+}
+
+.page-title {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.page-title h1 {
+    font-size: 24px;
+    margin: 4px 0 10px;
+}
+
+.page-title span {
+    color: #999;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.page-content {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    min-height: 400px;
+}
+.panel-body h1 {
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.post-label {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    line-height: 1.42857;
+    padding: 4px;
+    transition: border 0.2s ease-in-out 0s;
+    border-radius: 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.post-label > img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 150px;
+    width: 100%;
+}
+
+.post-tags {
+    color: #999;
+    font-size: 12px;
+}
+
+.post-tags span {
+    margin-right: 4px;
+}
+
+.post-tags a {
+    color: #999;
+}
+
+.tags {
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.panel-body .media-feed {
+    font-size: 12px;
+    line-height: 1.5em;
+}
+
+.panel-body .media-feed .media .media-object {
+    width: 40px;
+    height: 40px;
+    padding: 1px;
+    border: #ddd solid 1px;
+}
+
+.panel-body .media-feed .media-action {
+    margin-top: 5px;
+}
+
+.panel-body {
+    padding-left:0px;
+    padding-right:0px;
+}
+
+.feed .panel-body {
+    padding-bottom:0px;
+}
+.btn-feed {
+    height:50px;
+    border-radius:0px;
+}
+
+.form-group textarea {
+    height: 50px;
+    resize: none;
+    font-size: 12px;
+}
+
+.panel-body .media-feed {
+    height: 360px;
+    position: relative;
+    word-break: break-all;
+    overflow:auto;
+}
+
+.panel-body ul {
+    padding: 0;
+    margin: 0;
 }

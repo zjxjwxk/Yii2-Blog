@@ -2,7 +2,7 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = '创建';
+$this->title = '创建文章';
 $this->params['breadcrumbs'][] = ['label' => '文章', 'url' => ['post/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -19,11 +19,19 @@ $this->params['breadcrumbs'][] = $this->title;
 
 			<?= $form->field($model, 'cat_id')->dropDownList($cat) ?>
 
-			<?= $form->field($model, 'label_img')->textinput(['maxlenth' => true]) ?>
+			<?= $form->field($model, 'label_img')->widget('common\widgets\file_upload\FileUpload', [
+				'config'=>[
 
-			<?= $form->field($model, 'content')->textinput(['maxlenth' => true]) ?>
+				]
+			]) ?>
 
-			<?= $form->field($model, 'tags')->textinput(['maxlenth' => true]) ?>
+			<?= $form->field($model, 'content')->widget('common\widgets\ueditor\Ueditor',[
+			    'options'=>[
+			    	
+			    ]
+			]) ?>
+
+			<?= $form->field($model, 'tags')->widget('common\widgets\tags\TagWidget') ?>
 
 			<div class="form-group">
 				<?= Html::submitButton("发布", ['class' => 'btn btn-success'])?>
