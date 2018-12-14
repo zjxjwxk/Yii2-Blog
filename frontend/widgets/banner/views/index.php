@@ -6,7 +6,7 @@ use yii\helpers\Url;
 
 <div class="panel">
 
-    <div id="carousel-example-generic" class="carousel slide">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
         <!-- 轮播（Carousel）指标 -->
 

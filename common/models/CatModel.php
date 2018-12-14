@@ -37,8 +37,8 @@ class CatModel extends BaseModel
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'cat_name' => 'Cat Name',
+            'id' => '分类ID',
+            'cat_name' => '分类名',
         ];
     }
 

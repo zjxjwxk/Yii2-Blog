@@ -17,11 +17,11 @@ return [
             'identityClass' => 'common\models\UserModel',
             'enableAutoLogin' => true,
         ],
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'suffix' => '.html',
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [],
+        ],
         'i18n' => [
             'translations' => [
                 '*' => [

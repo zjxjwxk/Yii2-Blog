@@ -21,7 +21,7 @@ class PostWidget extends Widget
 	/**
 	 * 显示条数
 	 */
-	public $limit = 5;
+	public $limit = 6;
 
 	/**
 	 * 是否显示更多

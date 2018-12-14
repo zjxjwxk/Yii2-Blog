@@ -41,8 +41,8 @@ class TagModel extends BaseModel
     {
         return [
             'id' => 'ID',
-            'tag_name' => 'Tag Name',
-            'post_num' => 'Post Num',
+            'tag_name' => '标签名',
+            'post_num' => '文章数',
         ];
     }
 }

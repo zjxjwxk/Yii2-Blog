@@ -5,6 +5,7 @@ use common\models\PostModel;
 use Yii;
 use yii\db\Query;
 use common\models\RelationPostTagModel;
+use yii\web\NotFoundHttpException;
 
 /**
  * 文章表单模型
@@ -141,6 +142,67 @@ class PostForm extends Model
 		}
 	}
 
+	/*
+	 * 文章编辑
+	 */
+	public function update($id)
+	{
+		// 事务
+		$transaction = Yii::$app->db->beginTransaction();
+		try{
+			$model = PostModel::find()->where(['id' => $id])->one();
+			$model->setAttributes($this->attributes);
+			$model->summary = $this->_getSummary();
+			$model->user_id = Yii::$app->user->identity->id;
+			$model->user_name = Yii::$app->user->identity->username;
+			$model->is_valid = PostModel::IS_VALID;
+			$model->updated_at = time();
+
+			if (!$model->save()) {
+				print_r($model->errors);
+				throw new \Exception('文章更新失败！');
+			}
+			$this->id = $model->id;
+
+			// 调用事件
+			$data = array_merge($this->getAttributes(), $model->getAttributes());
+			$this->_eventAfterUpdate($data);
+
+			$transaction->commit();
+			return true;
+		}catch(\Exception $e){
+			$transaction->rollBack();
+			$this->_lastError = $e->getMessage();
+			return false;
+		}
+	}
+
+	public function getPostForm($id)
+	{
+		$res = PostModel::find()->with('relate.tag')->where(['id' => $id])->asArray()->one();
+		if (!$res) {
+			throw new NotFoundHttpException('文章不存在！');
+		}
+		// 处理标签格式
+		$res['tags'] = [];
+		if (isset($res['relate']) && !empty($res['relate'])) {
+			foreach ($res['relate'] as $list) {
+				$res['tags'][] = $list['tag']['tag_name'];
+			}
+		}
+		unset($res['relate']);
+
+		$model = new PostForm();
+		$model->id = $res['id'];
+		$model->title = $res['title'];
+		$model->content = $res['content'];
+		$model->label_img = $res['label_img'];
+		$model->cat_id = $res['cat_id'];
+		$model->tags = $res['tags'];
+
+		return $model;
+	}
+
 	public function getViewById($id)
 	{
 		$res = PostModel::find()->with('relate.tag', 'extend')->where(['id' => $id])->asArray()->one();
@@ -179,6 +241,17 @@ class PostForm extends Model
 		$this->on(self::EVENT_AFTER_CREATE, [$this, '_eventAddTag'], $data);
 		// 触发事件
 		$this->trigger(self::EVENT_AFTER_CREATE);
+	}
+
+	/**
+	 * 文章更新之后的事件
+	 */
+	public function _eventAfterUpdate($data)
+	{
+		// 添加事件
+		$this->on(self::EVENT_AFTER_UPDATE, [$this, '_eventAddTag'], $data);
+		// 触发事件
+		$this->trigger(self::EVENT_AFTER_UPDATE);
 	}
 
 	/**
