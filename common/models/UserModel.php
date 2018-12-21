@@ -42,9 +42,7 @@ class UserModel extends BaseModel implements IdentityInterface
             'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
-            'role' => '角色等级',
             'avatar' => '头像',
-            'vip lv' => 'VIP 等级',
         ];
     }
 

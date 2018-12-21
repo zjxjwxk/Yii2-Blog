@@ -44,7 +44,7 @@ class CatSearch extends CatModel
         $query = CatModel::find();
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+                'query' => $query,
         ]);
 
         $this->load($params);

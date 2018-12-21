@@ -50,7 +50,7 @@ class PostController extends BaseController
     {
         return [
             'upload'=>[
-                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+                'class' => 'common\widgets\file_upload\UploadAction',
                 'config' => [
                     'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
                 ]
@@ -120,6 +120,9 @@ class PostController extends BaseController
 		return $this->render('update', ['model' => $model, 'cat' => $cat]);
 	}
 
+	/**
+	 * 文章删除
+	 */
     public function actionDelete($id)
     {
         PostModel::findOne($id)->delete();

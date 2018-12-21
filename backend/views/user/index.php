@@ -24,10 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             //'auth_key',
             //'password_hash',
-            //'password_reset_token',
-            // 'email_validate_token:email',
             'email:email',
-            // 'role',
             'status' => [
                 'label' => '状态',
                 'attribute' => 'status',
@@ -37,7 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => ['0' => '非激活', '10' => '激活'],
             ],
             // 'avatar',
-            // 'vip_lv',
             'created_at:datetime',
             // 'updated_at',
 

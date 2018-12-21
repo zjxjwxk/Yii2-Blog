@@ -146,20 +146,20 @@ AppAsset::register($this);
 
     <div class="leftpanel-userinfo collapse" id="loguserinfo">
         <h5 class="sidebar-title">地址</h5>
-        <address>浙江省杭州市滨江区</address>
+        <address>浙江省杭州市西湖区</address>
         <h5 class="sidebar-title">联系方式</h5>
         <ul class="list-group">
             <li class="list-group-item">
                 <label class="pull-left">邮箱</label>
-                <span class="pull-right">me@themepixels.com</span>
+                <span class="pull-right">zjxjwxk@gmail.com</span>
             </li>
             <li class="list-group-item">
                 <label class="pull-left">电话</label>
-                <span class="pull-right">(032) 1234 567</span>
+                <span class="pull-right"></span>
             </li>
             <li class="list-group-item">
                 <label class="pull-left">手机</label>
-                <span class="pull-right">+63012 3456 789</span>
+                <span class="pull-right"></span>
             </li>
             <li class="list-group-item">
                 <label class="pull-left">第三方</label>
